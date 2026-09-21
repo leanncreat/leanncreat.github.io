@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嘉文吕布皮肤-王者荣耀吕布全系列皮肤鉴赏与获取指南</title>
+    <meta name="description" content="本站提供王者荣耀英雄吕布的详细皮肤图鉴，包括原皮、神威、机甲、猎兽、猎杀、天魔缭乱、星之守护者、圣诞狂欢、末日机甲、御风骁将、赤兔红颜、机甲·破晓等所有皮肤介绍、技能特效展示及获取攻略。">
+    <meta name="keywords" content="嘉文吕布皮肤, 吕布皮肤, 王者荣耀吕布皮肤, 吕布天魔缭乱, 吕布星之守护者, 王者荣耀皮肤大全">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --gold-color: #f1c40f;
+            --text-color: #333;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/dimvulcan/1920/600') center/cover;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold-color);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        /* Filter Tabs */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: var(--card-bg);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Skin Grid */
+        .skin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skin-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .skin-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .skin-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skin-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rarity {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .rarity.legendary { background-color: #e74c3c; }
+        .rarity.epic { background-color: #9b59b6; }
+        .rarity.rare { background-color: #3498db; }
+        .rarity.common { background-color: #95a5a6; }
+
+        .skin-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .skin-features {
+            font-size: 0.85rem;
+            color: #444;
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .skin-features li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .skin-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold-color);
+            font-weight: bold;
+        }
+
+        .skin-action {
+            margin-top: auto;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 0.6rem;
+            border: none;
+            border-radius: 4px;
+            background: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            background: var(--accent-color);
+        }
+
+        /* Special Highlight Section */
+        .highlight-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .highlight-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .highlight-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .highlight-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--gold-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 20px;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: var(--gold-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .highlight-grid { grid-template-columns: 1fr; }
+            nav { display: none; } /* Simplified mobile nav for demo */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">吕布<span>皮肤库</span></div>
+        <nav>
+            <ul>
+                <li><a href="#all">全部皮肤</a></li>
+                <li><a href="#legendary">传说级</a></li>
+                <li><a href="#epic">史诗级</a></li>
+                <li><a href="#guide">获取攻略</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>探索嘉文·吕布的荣耀征程</h1>
+        <p>从机甲战士到天魔降临，全面解析王者荣耀吕布全系列皮肤，助您在峡谷中展现最强战力。</p>
+        <a href="#all" class="cta-button">开始鉴赏</a>
+    </div>
+</section>
+
+<main class="container">
+
+    <!-- Filter Controls -->
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterSkins('all')">全部皮肤</button>
+        <button class="filter-btn" onclick="filterSkins('legendary')">传说级</button>
+        <button class="filter-btn" onclick="filterSkins('epic')">史诗级</button>
+        <button class="filter-btn" onclick="filterSkins('rare')">限定/稀有</button>
+    </div>
+
+    <!-- Skin Grid -->
+    <div class="skin-grid" id="skin-container">
+        
+        <!-- Card 1: 神威 -->
+        <article class="skin-card" data-rarity="legendary">
+            <img src="https://picsum.photos/seed/dimvulcan1/400/300" alt="神威皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    神威
+                    <span class="rarity legendary">传说级</span>
+                </div>
+                <p class="skin-desc">以东方神话为灵感设计的机甲风格皮肤，充满未来感与力量。</p>
+                <ul class="skin-features">
+                    <li>机甲造型设计</li>
+                    <li>开启大招时触发机械变身</li>
+                    <li>专属击杀特效</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 2: 猎兽之王 -->
+        <article class="skin-card" data-rarity="legendary">
+            <img src="https://picsum.photos/seed/dimvulcan2/400/300" alt="猎兽之王皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    猎兽之王
+                    <span class="rarity legendary">传说级</span>
+                </div>
+                <p class="skin-desc">融合了野兽元素与战士气质的皮肤，野性十足，霸气侧漏。</p>
+                <ul class="skin-features">
+                    <li>野兽纹身与装甲</li>
+                    <li>召唤魔神形态</li>
+                    <li>击杀特效</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 3: 猎杀时刻 -->
+        <article class="skin-card" data-rarity="legendary">
+            <img src="https://picsum.photos/seed/dimvulcan3/400/300" alt="猎杀时刻皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    猎杀时刻
+                    <span class="rarity legendary">传说级</span>
+                </div>
+                <p class="skin-desc">暗黑风格动作电影大片质感，充满张力的刺客美学。</p>
+                <ul class="skin-features">
+                    <li>电影级动态效果</li>
+                    <li>光影特效</li>
+                    <li>专属语音</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 4: 天魔缭乱 -->
+        <article class="skin-card" data-rarity="legendary">
+            <img src="https://picsum.photos/seed/dimvulcan4/400/300" alt="天魔缭乱皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    天魔缭乱
+                    <span class="rarity legendary">传说级</span>
+                </div>
+                <p class="skin-desc">吕布最经典的传说皮肤，天魔降临，战力爆表。</p>
+                <ul class="skin-features">
+                    <li>天魔降临变身</li>
+                    <li>极具压迫感的技能特效</li>
+                    <li>高价值收藏</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 5: 星之守护者 -->
+        <article class="skin-card" data-rarity="epic">
+            <img src="https://picsum.photos/seed/dimvulcan5/400/300" alt="星之守护者皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    星之守护者
+                    <span class="rarity epic">史诗级</span>
+                </div>
+                <p class="skin-desc">宇宙少女主题，虽然画风偏柔，但依然保留了吕布的霸体。</p>
+                <ul class="skin-features">
+                    <li>宇宙少女主题</li>
+                    <li>星系特效</li>
+                    <li>较为柔和的打击感</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 6: 圣诞狂欢 -->
+        <article class="skin-card" data-rarity="epic">
+            <img src="https://picsum.photos/seed/dimvulcan6/400/300" alt="圣诞狂欢皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    圣诞狂欢
+                    <span class="rarity epic">史诗级</span>
+                </div>
+                <p class="skin-desc">红白配色，充满节日氛围，适合在冬季节日活动中使用。</p>
+                <ul class="skin-features">
+                    <li>圣诞限定主题</li>
+                    <li>雪地特效</li>
+                    <li>节日限定</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 7: 末日机甲 -->
+        <article class="skin-card" data-rarity="legendary">
+            <img src="https://picsum.photos/seed/dimvulcan7/400/300" alt="末日机甲皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    末日机甲
+                    <span class="rarity legendary">传说级</span>
+                </div>
+                <p class="skin-desc">钢铁与血肉的结合，拥有独特的机甲变形与战斗姿态。</p>
+                <ul class="skin-features">
+                    <li>机甲变形</li>
+                    <li>火焰喷射特效</li>
+                    <li>极具辨识度的造型</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 8: 御风骁将 -->
+        <article class="skin-card" data-rarity="epic">
+            <img src="https://picsum.photos/seed/dimvulcan8/400/300" alt="御风骁将皮肤" class="skin-image">
+            <div class="skin-info">
+                <div class="skin-name">
+                    御风骁将
+                    <span class="rarity epic">史诗级</span>
+                </div>
+                <p class="skin-desc">战马与骑士的化身，风驰电掣，势不可挡。</p>
+                <ul class="skin-features">
+                    <li>战马坐骑</li>
+                    <li>风系特效</li>
+                    <li>国风设计</li>
+                </ul>
+                <div class="skin-action">
+                    <button class="action-btn">查看详情</button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- Feature Highlight -->
+    <section class="highlight-section" id="guide">
+        <div class="highlight-grid">
+            <div class="highlight-text">
+                <h2>如何获取优质皮肤？</h2>
+                <p>吕布作为王者荣耀中的热门战士，拥有多款高颜值与高价值的皮肤。获取皮肤的主要途径包括：</p>
+                <ul style="margin-left: 20px; margin-top: 10px; list-style-type: disc;">
+                    <li><strong>商城直售：</strong>部分史诗级皮肤会定期返场或上架。</li>
+                    <li><strong>活动获取：</strong>关注游戏内的节日活动或排位赛奖励。</li>
+                    <li><strong>碎片兑换：</strong>通过活动或购买荣耀水晶，使用皮肤碎片兑换。</li>
+                </ul>
+                <div class="highlight-stats">
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>皮肤数量</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3</h3>
+                        <p>传说级皮肤</p>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight-image">
+                <img src="https://picsum.photos/seed/dimvulcanart/600/400" alt="吕布皮肤赏析" style="width: 100%; border-radius: 8px;">
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于皮肤库</h4>
+            <p>专注王者荣耀皮肤鉴赏与攻略分享，为您提供最全的视觉体验与游戏资讯。</p>
+        </div>
+        <div class="footer-col">
+            <h4>热门分类</h4>
+            <ul>
+                <li><a href="#">李白皮肤</a></li>
+                <li><a href="#">韩信皮肤</a></li>
+                <li><a href="#">孙悟空皮肤</a></li>
+                <li><a href="#">貂蝉皮肤</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>相关链接</h4>
+            <ul>
+                <li><a href="#">王者荣耀官网</a></li>
+                <li><a href="#">官方社区</a></li>
+                <li><a href="#">赛事中心</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 吕布皮肤库. 本站为非官方网站，内容仅供展示与参考。</p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+<script>
+    // 简单的筛选功能
+    function filterSkins(category) {
+        const cards = document.querySelectorAll('.skin-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        // 更新按钮状态
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // 筛选卡片
+        cards.forEach(card => {
+            if (category === 'all') {
+                card.style.display = 'flex';
+            } else {
+                if (card.getAttribute('data-rarity') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+              </html>
