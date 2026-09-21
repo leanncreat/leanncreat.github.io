@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="华视官方门户网站，提供最新电视节目资讯、直播频道入口、电视剧/综艺/纪录片在线观看及影视资讯服务。">
+    <meta name="keywords" content="华视,华视官网,电视节目,在线直播,电视剧,综艺,影视资讯">
+    <title>华视-官方电视节目与影视资讯门户</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #b91c1c; /* 华视红 */
+            --primary-hover: #991b1b;
+            --text-main: #1f2937;
+            --text-secondary: #4b5563;
+            --text-light: #9ca3af;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部通栏 */
+        .top-bar {
+            background-color: #1f2937;
+            color: #d1d5db;
+            font-size: 12px;
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-links a {
+            margin-left: 15px;
+        }
+
+        .top-links a:hover {
+            color: #fff;
+        }
+
+        /* 头部与导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            margin-left: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 24px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 12px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            padding: 0 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 480px;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: transform 10s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            padding-left: 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: #e5e7eb;
+            font-size: 16px;
+            margin-bottom: 25px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--text-main);
+        }
+
+        /* 主体内容布局 */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* 左侧内容区 */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title h3 {
+            font-size: 20px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title h3::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* 热播剧集卡片网格 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 140%; /* 5:7 比例 */
+            background-color: #e5e7eb;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-ep {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* 直播频道列表 */
+        .live-list {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .live-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .live-item:last-child {
+            border-bottom: none;
+        }
+
+        .live-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #fee2e2;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .live-info {
+            flex: 1;
+        }
+
+        .live-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .live-status {
+            font-size: 12px;
+            color: var(--primary-color);
+            margin-top: 2px;
+        }
+
+        .live-btn {
+            padding: 4px 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* 资讯列表 */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-date {
+            width: 60px;
+            text-align: center;
+            background-color: #f3f4f6;
+            padding: 8px 0;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .news-date .day {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .news-date .month {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .news-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .news-content h4:hover {
+            color: var(--primary-color);
+        }
+
+        .news-excerpt {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 品牌专区 */
+        .brands {
+            background-color: var(--bg-card);
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .brand-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            opacity: 0.7;
+        }
+
+        .brand-item {
+            font-size: 20px;
+            font-weight: 700;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            .nav-menu {
+                margin: 15px 0;
+                gap: 15px;
+                overflow-x: auto;
+                padding-bottom: 5px;
+                white-space: nowrap;
+            }
+
+            .search-box {
+                display: none; /* 移动端简化 */
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部通栏 -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎访问华视官方网站，获取最新影视资讯与直播服务。</span>
+            <div class="top-links">
+                <a href="#">关于我们</a>
+                <a href="#">加入我们</a>
+                <a href="#">联系客服</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-main">
+            <a href="#" class="logo">华视<span>HUAISHI</span></a>
+            
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">电视剧</a>
+                <a href="#">综艺娱乐</a>
+                <a href="#">纪录片</a>
+                <a href="#">直播频道</a>
+                <a href="#">影视资讯</a>
+            </nav>
+
+            <div class="search-box">
+                <input type="text" placeholder="搜索节目或演员...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <img src="https://picsum.photos/seed/tvshow1/1920/600" alt="热门剧集封面" class="hero-bg">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">本周重磅推荐</span>
+                <h2>《时代风云》第一季：大幕拉开</h2>
+                <p>穿越时空的史诗巨制，见证历史转折点。华视独家首播，每周日晚8点准时更新，精彩不容错过。</p>
+                <div>
+                    <a href="#" class="btn">立即观看</a>
+                    <a href="#" class="btn btn-outline">加入片单</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主体内容 -->
+    <div class="container main-layout">
+        
+        <!-- 左侧：热播剧集 -->
+        <main>
+            <section>
+                <div class="section-title">
+                    <h3>热播剧集</h3>
+                    <a href="#" class="view-all">查看全部 ></a>
+                </div>
+                <div class="video-grid">
+                    <!-- 剧集卡片 1 -->
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <span class="card-badge">更新至12集</span>
+                            <img src="https://picsum.photos/seed/drama1/400/560" alt="剧集封面">
+                        </div>
+                        <div class="card-info">
+                            <h4 class="card-title">深巷迷雾</h4>
+                            <div class="card-meta">
+                                <span class="card-ep">悬疑 / 犯罪</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 剧集卡片 2 -->
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <span class="card-badge">完结</span>
+                            <img src="https://picsum.photos/seed/drama2/400/560" alt="剧集封面">
+                        </div>
+                        <div class="card-info">
+                            <h4 class="card-title">都市微光</h4>
+                            <div class="card-meta">
+                                <span class="card-ep">爱情 / 都市</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 剧集卡片 3 -->
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <span class="card-badge">热播中</span>
+                            <img src="https://picsum.photos/seed/drama3/400/560" alt="剧集封面">
+                        </div>
+                        <div class="card-info">
+                            <h4 class="card-title">星际远征</h4>
+                            <div class="card-meta">
+                                <span class="card-ep">科幻 / 冒险</span>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 剧集卡片 4 -->
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <span class="card-badge">更新至8集</span>
+                            <img src="https://picsum.photos/seed/drama4/400/560" alt="剧集封面">
+                        </div>
+                        <div class="card-info">
+                            <h4 class="card-title">归途</h4>
+                            <div class="card-meta">
+                                <span class="card-ep">剧情 / 家庭</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 资讯快讯 -->
+            <section style="margin-top: 50px;">
+                <div class="section-title">
+                    <h3>最新资讯</h3>
+                    <a href="#" class="view-all">更多新闻 ></a>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">
+                            <span class="day">15</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h4><a href="#">华视台庆晚会定档，众星云集共襄盛举</a></h4>
+                            <p class="news-excerpt">今年的台庆晚会将汇聚两岸三地知名艺人，带来一场视听盛宴，敬请期待。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">
+                            <span class="day">14</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h4><a href="#">《时代风云》导演接受独家专访，揭秘创作幕后</a></h4>
+                            <p class="news-excerpt">导演谈到了剧本打磨过程以及如何还原那个波澜壮阔的历史年代。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">
+                            <span class="day">12</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h4><a href="#">华视高清频道全面升级，画质提升50%</a></h4>
+                            <p class="news-excerpt">为了给观众提供更好的观影体验，华视对传输链路进行了全面的技术改造。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 右侧：侧边栏 -->
+        <aside>
+            <!-- 直播频道 -->
+            <div class="live-list">
+                <div class="section-title" style="border:none; padding-bottom:0;">
+                    <h3>正在直播</h3>
+                </div>
+                <div class="live-item">
+                    <div class="live-icon">📺</div>
+                    <div class="live-info">
+                        <div class="live-name">综合新闻频道</div>
+                        <div class="live-status">● 直播中</div>
+                    </div>
+                    <a href="#" class="live-btn">观看</a>
+                </div>
+                <div class="live-item">
+                    <div class="live-icon">🎬</div>
+                    <div class="live-info">
+                        <div class="live-name">华视电影台</div>
+                        <div class="live-status">● 直播中</div>
+                    </div>
+                    <a href="#" class="live-btn">观看</a>
+                </div>
+                <div class="live-item">
+                    <div class="live-icon">🎵</div>
+                    <div class="live-info">
+                        <div class="live-name">音乐频道</div>
+                        <div class="live-status">● 直播中</div>
+                    </div>
+                    <a href="#" class="live-btn">观看</a>
+                </div>
+                <div class="live-item">
+                    <div class="live-icon">🧩</div>
+                    <div class="live-info">
+                        <div class="live-name">益智竞技台</div>
+                        <div class="live-status">● 直播中</div>
+                    </div>
+                    <a href="#" class="live-btn">观看</a>
+                </div>
+            </div>
+
+            <!-- 热门推荐 -->
+            <div style="margin-top: 30px;">
+                <div class="section-title">
+                    <h3>热门推荐</h3>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item" style="border:none; padding-bottom:0;">
+                        <div class="news-content">
+                            <a href="#">《明日之后》科幻巨制定档11月</a>
+                        </div>
+                    </li>
+                    <li class="news-item" style="border:none; padding-bottom:0;">
+                        <div class="news-content">
+                            <a href="#">华视荣获年度最佳媒体平台奖</a>
+                        </div>
+                    </li>
+                    <li class="news-item" style="border:none; padding-bottom:0;">
+                        <div class="news-content">
+                            <a href="#">《周末大放送》全新改版上线</a>
+                        </div>
+                    </li>
+                    <li class="news-item" style="border:none; padding-bottom:0;">
+                        <div class="news-content">
+                            <a href="#">秋季档电视剧收视报告出炉</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 合作伙伴 -->
+    <section class="brands">
+        <div class="container">
+            <div class="brand-grid">
+                <div class="brand-item">📺 华视</div>
+                <div class="brand-item">📡 卫星传输</div>
+                <div class="brand-item">🎬 制片中心</div>
+                <div class="brand-item">📱 移动端</div>
+                <div class="brand-item">🌐 网络电视</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">华视<span>HUAISHI</span></div>
+                    <p>华视致力于为观众提供高品质的电视节目与影视内容服务。我们关注社会热点，讲述动人故事，打造有温度的媒体平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于华视</a></li>
+                        <li><a href="#">节目表</a></li>
+                        <li><a href="#">广告招商</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>节目分类</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">电视剧</a></li>
+                        <li><a href="#">综艺节目</a></li>
+                        <li><a href="#">纪录片</a></li>
+                        <li><a href="#">儿童频道</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">电话：400-123-4567</a></li>
+                        <li><a href="#">邮箱：contact@huashi.tv</a></li>
+                        <li><a href="#">地址：华视传媒大厦</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 华视传媒 版权所有 | 仅供演示使用</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
