@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="芒果TV网页版官方首页，提供海量热门电视剧、综艺、动漫、影视在线观看。高清流畅播放，独家内容首发，随时随地畅享视听盛宴。">
+    <meta name="keywords" content="芒果tv网页版,芒果TV在线观看,芒果TV电视剧,芒果TV综艺,芒果TV官网">
+    <title>芒果TV网页版-海量影视综艺在线观看与高清播放平台</title>
+    <style>
+        :root {
+            --primary-color: #ff5e00;
+            --secondary-color: #ff8f00;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: var(--container-width);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: white;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        /* Main Layout */
+        main {
+            margin-top: var(--header-height);
+            min-height: calc(100vh - var(--header-height) - 200px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 500px;
+            background-image: url('https://picsum.photos/seed/mangohero/1920/800.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 40px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, var(--dark-bg), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: var(--container-width);
+            padding: 0 20px;
+        }
+
+        .hero-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-meta {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #ddd;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Content Sections */
+        .section-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-more {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .view-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-poster {
+            position: relative;
+            width: 100%;
+            padding-top: 140%; /* 5:7 Aspect Ratio */
+            background-color: #333;
+        }
+
+        .card-poster img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Category Pills */
+        .category-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: #444 transparent;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .category-scroll::-webkit-scrollbar-thumb {
+            background-color: #444;
+            border-radius: 4px;
+        }
+
+        .pill {
+            padding: 8px 16px;
+            background-color: #333;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .pill:hover, .pill.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Feature Section (2 Columns) */
+        .feature-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            height: 300px;
+        }
+
+        .feature-img {
+            width: 40%;
+            background-color: #333;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 20px;
+            }
+            
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .search-bar {
+                order: 3;
+                margin: 10px 0 0 0;
+                max-width: 100%;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                height: auto;
+            }
+
+            .feature-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .feature-content {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#ff5e00"/>
+                <path d="M2 17L12 22L22 17" stroke="#ff5e00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="#ff5e00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>芒果TV</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#" class="active">首页</a>
+            <a href="#">电视剧</a>
+            <a href="#">综艺</a>
+            <a href="#">电影</a>
+            <a href="#">动漫</a>
+            <a href="#">少儿</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索剧集、综艺、明星...">
+            <button class="search-btn" aria-label="搜索">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">独家热播</span>
+            <h1 class="hero-title">乘风破浪</h1>
+            <div class="hero-meta">芒果TV自制综艺 · 第9季 · 全网独播</div>
+            <p class="hero-desc">新一季《乘风破浪》集结了来自各个领域的优秀女性，在舞台上展现自我，挑战极限，为观众带来一场视听与心灵的盛宴。</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    立即观看
+                </button>
+                <button class="btn btn-secondary">加入片单</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="section-container">
+        <div class="category-scroll">
+            <div class="pill active">全部</div>
+            <div class="pill">热播剧集</div>
+            <div class="pill">芒果独播</div>
+            <div class="pill">真人秀</div>
+            <div class="pill">纪录片</div>
+            <div class="pill">动漫</div>
+            <div class="pill">育儿亲子</div>
+            <div class="pill">游戏竞技</div>
+        </div>
+    </div>
+
+    <!-- Hot TV Shows -->
+    <section class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">热播剧集</h2>
+            <a href="#" class="view-more">查看全部 ></a>
+        </div>
+        <div class="video-grid">
+            <!-- Card 1 -->
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/tv1/300/420" alt="剧集封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">以家人之名</h3>
+                    <div class="card-meta">
+                        <span>42集全</span>
+                        <span>9.2分</span>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 2 -->
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/tv2/300/420" alt="剧集封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">山河令</h3>
+                    <div class="card-meta">
+                        <span>36集全</span>
+                        <span>9.5分</span>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 3 -->
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/tv3/300/420" alt="剧集封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">猎罪图鉴</h3>
+                    <div class="card-meta">
+                        <span>24集全</span>
+                        <span>9.1分</span>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 4 -->
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/tv4/300/420" alt="剧集封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">司藤</h3>
+                    <div class="card-meta">
+                        <span>36集全</span>
+                        <span>8.9分</span>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 5 -->
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/tv5/300/420" alt="剧集封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">扫黑风暴</h3>
+                    <div class="card-meta">
+                        <span>18集全</span>
+                        <span>9.3分</span>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 6 -->
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/tv6/300/420" alt="剧集封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">大江大河</h3>
+                    <div class="card-meta">
+                        <span>40集全</span>
+                        <span>9.4分</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">独家推荐</h2>
+            <a href="#" class="view-more">更多 ></a>
+        </div>
+        <div class="feature-row">
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="https://picsum.photos/seed/movie1/800/600" alt="独家电影">
+                </div>
+                <div class="feature-content">
+                    <span class="hero-tag">芒果电影</span>
+                    <h3 class="feature-title">无名之辈</h3>
+                    <p class="feature-text">这是一部关于底层人物的小人物史诗，在绝望中寻找希望，在荒诞中展现温情。豆瓣高分力作，芒果TV独家上线。</p>
+                    <button class="btn btn-primary" style="width: fit-content;">立即观看</button>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="https://picsum.photos/seed/doc1/800/600" alt="纪录片">
+                </div>
+                <div class="feature-content">
+                    <span class="hero-tag">人文纪录片</span>
+                    <h3 class="feature-title">蓝色星球II</h3>
+                    <p class="feature-text">BBC顶级制作团队倾力打造，带你潜入深海，探索未知的世界，感受大自然的鬼斧神工。</p>
+                    <button class="btn btn-primary" style="width: fit-content;">立即观看</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variety Shows -->
+    <section class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">热门综艺</h2>
+            <a href="#" class="view-more">查看全部 ></a>
+        </div>
+        <div class="video-grid">
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/var1/300/420" alt="综艺封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">向往的生活</h3>
+                    <div class="card-meta">
+                        <span>第7季</span>
+                        <span>慢生活</span>
+                    </div>
+                </div>
+            </article>
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/var2/300/420" alt="综艺封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">披荆斩棘的哥哥</h3>
+                    <div class="card-meta">
+                        <span>第3季</span>
+                        <span>音乐竞演</span>
+                    </div>
+                </div>
+            </article>
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/var3/300/420" alt="综艺封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">密室大逃脱</h3>
+                    <div class="card-meta">
+                        <span>第5季</span>
+                        <span>悬疑</span>
+                    </div>
+                </div>
+            </article>
+            <article class="video-card">
+                <div class="card-poster">
+                    <img src="https://picsum.photos/seed/var4/300/420" alt="综艺封面">
+                    <div class="card-overlay">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">元气满满的哥哥</h3>
+                    <div class="card-meta">
+                        <span>第2季</span>
+                        <span>户外</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="logo" style="margin-bottom: 20px;">
+                <span style="color: var(--primary-color);">芒果TV</span>
+            </div>
+            <p style="color: #666; font-size: 13px; line-height: 1.8;">
+                中国领先的互联网视频平台，致力于为用户提供高清、流畅的在线视频体验。独家热播剧集、热门综艺、优质动漫，尽在芒果TV。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>观看指南</h4>
+            <ul>
+                <li><a href="#">如何观看</a></li>
+                <li><a href="#">会员权益</a></li>
+                <li><a href="#">设备下载</a></li>
+                <li><a href="#">帮助中心</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul>
+                <li><a href="#">公司简介</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">联系方式</a></li>
+                <li><a href="#">版权声明</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们</h4>
+            <ul>
+                <li><a href="#">官方微博</a></li>
+                <li><a href="#">微信公众号</a></li>
+                <li><a href="#">官方APP下载</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 MGTV. All Rights Reserved. 本页面仅为设计演示，非官方网站。</p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+              </html>
