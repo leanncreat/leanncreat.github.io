@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩露-中国知名新生代作家与代表作品全集</title>
+    <meta name="description" content="韩露官方网站，收录中国知名新生代作家韩露的生平简介、代表作品全集（如《昼颜》、《小城故事》等）、创作风格解析及读者互动社区。">
+    <meta name="keywords" content="韩露, 韩露作品, 昼颜, 小城故事, 韩露小说, 中国作家">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Author Intro */
+        .author-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .author-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .author-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .author-tags {
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #ecf0f1;
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+        }
+
+        .author-bio {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .work-cover {
+            height: 380px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .work-details {
+            padding: 20px;
+        }
+
+        .work-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .work-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .work-genre {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background-color: #eef2f3;
+        }
+
+        .featured-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .featured-text {
+            flex: 1;
+        }
+
+        .featured-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .featured-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .featured-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-main);
+        }
+
+        .featured-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-right: 10px;
+        }
+
+        .featured-img {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-color);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .featured-content {
+                flex-direction: column;
+            }
+
+            .featured-img {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">韩露<span>文学馆</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#author">作者简介</a></li>
+                    <li><a href="#works">代表作品</a></li>
+                    <li><a href="#style">创作风格</a></li>
+                    <li><a href="#faq">读者问答</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>韩露<br>新生代文学的代表者</h1>
+            <p>探索韩露笔下独特的都市情感与细腻人性，感受文字中蕴含的冷艳与温情。这里汇集了关于她的全部文学档案与深度解读。</p>
+            <a href="#works" class="btn">开始阅读</a>
+        </div>
+    </section>
+
+    <!-- Author Intro Section -->
+    <section id="author" class="container">
+        <div class="author-card">
+            <img src="https://picsum.photos/seed/hanlu_author/200/200" alt="韩露" class="author-avatar">
+            <div class="author-info">
+                <h3>韩露</h3>
+                <div class="author-tags">
+                    <span class="tag">新生代作家</span>
+                    <span class="tag">都市情感</span>
+                    <span class="tag">悬疑推理</span>
+                </div>
+                <p class="author-bio">
+                    韩露是中国文坛极具辨识度的新生代作家，以冷峻的笔触、独特的女性视角和细腻入微的心理描写著称。她的作品往往聚焦于都市人群在边缘状态下的生存状态，既有对现实的冷峻审视，又不乏对人性的温情关怀。她的文字如同她笔下的人物，既孤独又充满张力。
+                </p>
+                <a href="#works" class="btn" style="padding: 10px 25px; font-size: 0.9rem;">浏览作品集</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="style" class="section featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>创作风格与文学特色</h2>
+                <p>理解韩露作品的钥匙：冷艳、孤独与救赎</p>
+            </div>
+            <div class="featured-content">
+                <div class="featured-text">
+                    <h3>冷冽表象下的深情</h3>
+                    <p>韩露的作品常被读者评价为“冷艳”。这种冷并非无情，而是一种对现实残酷的清醒认知和自我保护。她擅长刻画处于社会边缘或内心封闭的女性形象，通过细腻的心理独白，展现她们在孤独中寻找慰藉、在绝望中渴望救赎的过程。</p>
+                    <ul class="featured-list">
+                        <li><strong>独特的叙事视角：</strong> 多采用第一人称或贴近的第三人称，增强代入感。</li>
+                        <li><strong>细腻的感官描写：</strong> 对环境、气味、光影的捕捉极具画面感。</li>
+                        <li><strong>都市异化主题：</strong> 探讨现代都市生活中人际关系的疏离与重构。</li>
+                    </ul>
+                </div>
+                <div class="featured-img">
+                    <img src="https://picsum.photos/seed/hanlu_style/600/400" alt="韩露风格解析图">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>代表作品全集</h2>
+                <p>精选韩露最具影响力的小说与故事</p>
+            </div>
+            <div class="works-grid">
+                <!-- Work 1 -->
+                <article class="work-card">
+                    <img src="https://picsum.photos/seed/zhouyan/400/550" alt="昼颜封面" class="work-cover">
+                    <div class="work-details">
+                        <h3 class="work-title">《昼颜》</h3>
+                        <div class="work-meta">
+                            <span class="work-genre">都市 / 情感</span>
+                            <span>2015</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">讲述都市女性在平淡生活下压抑的情感爆发，探讨婚姻与欲望的边界。</p>
+                    </div>
+                </article>
+
+                <!-- Work 2 -->
+                <article class="work-card">
+                    <img src="https://picsum.photos/seed/xiaocheng/400/550" alt="小城故事封面" class="work-cover">
+                    <div class="work-details">
+                        <h3 class="work-title">《小城故事》</h3>
+                        <div class="work-meta">
+                            <span class="work-genre">悬疑 / 民俗</span>
+                            <span>2012</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">以独特的民俗视角切入悬疑，揭开小城背后的隐秘往事。</p>
+                    </div>
+                </article>
+
+                <!-- Work 3 -->
+                <article class="work-card">
+                    <img src="https://picsum.photos/seed/shengming/400/550" alt="生命册封面" class="work-cover">
+                    <div class="work-details">
+                        <h3 class="work-title">《生命册》</h3>
+                        <div class="work-meta">
+                            <span class="work-genre">长篇小说</span>
+                            <span>2018</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">一部关于成长与遗忘的史诗，记录了一个灵魂在时代洪流中的漂泊。</p>
+                    </div>
+                </article>
+
+                <!-- Work 4 -->
+                <article class="work-card">
+                    <img src="https://picsum.photos/seed/guimo/400/550" alt="巨人封面" class="work-cover">
+                    <div class="work-details">
+                        <h3 class="work-title">《巨人》</h3>
+                        <div class="work-meta">
+                            <span class="work-genre">现实主义</span>
+                            <span>2016</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">描绘底层人物的奋斗史，展现小人物在大时代中的坚韧与不屈。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section" style="background-color: #f4f6f7;">
+        <div class="container">
+            <div class="section-header">
+                <h2>读者常见问题</h2>
+                <p>关于韩露及其作品的解答</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">韩露的主要写作题材是什么？</div>
+                    <div class="faq-answer">
+                        韩露主要创作都市情感、悬疑推理及现实主义题材的小说。她擅长通过女性视角剖析现代都市人的情感困境，同时将悬疑元素融入生活场景，形成独特的“冷艳”风格。
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">哪里可以读到韩露的完整作品？</div>
+                    <div class="faq-answer">
+                        韩露的作品已结集出版，包括《昼颜》、《小城故事》、《生命册》等。建议通过正规书店或官方授权的在线阅读平台购买和阅读，以支持原作者。
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">韩露的写作风格有什么特点？</div>
+                    <div class="faq-answer">
+                        她的风格以冷峻、细腻著称。文字中常带有一种疏离感，但对人物内心世界的挖掘极为深入，能够在压抑的氛围中传递出深刻的人文关怀。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>韩露文学馆</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem;">
+                        致力于推广新生代作家韩露的文学作品，为读者提供纯净的阅读体验和深度的文学解读。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#author">作者简介</a></li>
+                        <li><a href="#works">代表作品</a></li>
+                        <li><a href="#faq">读者问答</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博专栏</a></li>
+                        <li><a href="#">豆瓣阅读</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 韩露文学馆. All Rights Reserved. 本站为粉丝整理的非官方展示页面。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            // Close all other items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+            // Toggle current item
+            element.classList.toggle('active');
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                    
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
