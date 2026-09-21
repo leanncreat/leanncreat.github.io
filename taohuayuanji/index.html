@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="桃花源记官网 - 东晋诗人陶渊明经典名篇在线阅读与赏析。提供全文诵读、白话译文、背景介绍及教学资源，深度解读‘世外桃源’的文学意境与哲学内涵。">
+    <meta name="keywords" content="桃花源记, 陶渊明, 古文赏析, 文学经典, 世外桃源, 课文解析">
+    <title>桃花源记官网 - 经典古文名篇诵读与深度赏析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5d4037;
+            --secondary-color: #8d6e63;
+            --accent-color: #d7ccc8;
+            --bg-color: #fcfbf9;
+            --text-main: #3e2723;
+            --text-light: #6d4c41;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(93, 64, 55, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #efebe9 0%, #fff 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(93, 64, 55, 0.1);
+            color: var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Text Content Area */
+        .text-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .original-text {
+            font-family: "KaiTi", "STKaiti", serif;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            text-align: justify;
+            margin-bottom: 40px;
+            color: #2c2c2c;
+        }
+
+        .original-text p {
+            margin-bottom: 1em;
+            text-indent: 2em;
+        }
+
+        .translation {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Analysis Section */
+        .analysis-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .analysis-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .analysis-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .analysis-list li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .analysis-image {
+            background-color: var(--accent-color);
+            height: 300px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Teaching Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-item {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .resource-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .resource-body {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .resource-body a {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #d7ccc8;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: #a1887f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .analysis-section {
+                grid-template-columns: 1fr;
+            }
+            .text-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span></span> 桃花源记官网
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#text">全文诵读</a></li>
+                    <li><a href="#analysis">深度赏析</a></li>
+                    <li><a href="#resources">教学资源</a></li>
+                </ul>
+            </nav>
+            <a href="#text" class="cta-btn">开始阅读</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>寻找心中的“桃花源”</h1>
+        <p>东晋大诗人陶渊明笔下的世外桃源，不仅是文学史上的瑰宝，更是中国人精神寄托的象征。本站致力于提供最纯净的古文诵读体验与最严谨的文学解析。</p>
+        <div class="hero-tags">
+            <span class="tag">文言文</span>
+            <span class="tag">中学必背</span>
+            <span class="tag">田园诗</span>
+            <span class="tag">理想国</span>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Main Text Section -->
+        <section id="text" class="text-section">
+            <h2>《桃花源记》全文</h2>
+            <div class="original-text">
+                <p>晋太元中，武陵人捕鱼为业。缘溪行，忘路之远近。忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷。渔人甚异之，复前行，欲穷其林。</p>
+                <p>林尽水源，便得一山，山有小口，仿佛若有光。便舍船，从口入。初极狭，才通人。复行数十步，豁然开朗。土地平旷，屋舍俨然，有良田、美池、桑竹之属。阡陌交通，鸡犬相闻。其中往来种作，男女衣着，悉如外人。黄发垂髫，并怡然自乐。</p>
+                <p>见渔人，乃大惊，问所从来。具答之。便要还家，设酒杀鸡作食。村中闻有此人，咸来问讯。自云先世避秦时乱，率妻子邑人来此绝境，不复出焉，遂与外人间隔。问今是何世，乃不知有汉，无论魏晋。此人一一为具言所闻，皆叹惋。余人各复延至其家，皆出酒食。停数日，辞去。此中人语云：“不足为外人道也。”</p>
+                <p>既出，得其船，便扶向路，处处志之。及郡下，诣太守，说如此。太守即遣人随其往，寻向所志，遂迷，不复得路。</p>
+                <p>南阳刘子骥，高尚士也，闻之，欣然规往。未果，寻病终。后遂无问津者。</p>
+            </div>
+            <div class="translation">
+                <h3>【白话译文】</h3>
+                <p>东晋太元年间，有个武陵人以捕鱼为生。有一天他沿着溪水划船，忘记了路程的远近。忽然遇到一片桃花林，生长在溪水两岸，长达几百步，中间没有别的树，花草鲜嫩美丽，地上的落花繁多交杂。渔人对此感到十分惊奇，继续往前走，想要走到这片林子的尽头。</p>
+                <p>桃林在溪水发源的地方结束了，便看到一座山，山上有个小洞口，里面好像有光亮。渔人就丢下船，从洞口进去。起初洞口很狭窄，仅容一个人通过。又走了几十步，突然变得开阔明亮。土地平坦宽广，房屋整整齐齐，有肥沃的田地、美丽的池塘和桑树竹林这类景物。田间小路纵横交错，四通八达，村落间能互相听到鸡鸣狗叫的声音。其中来来往往耕种劳作的人，男女的穿戴，都像桃花源外面的人。老人和小孩，都安闲快乐。</p>
+                <p>（桃源人）看见渔人，竟然大吃一惊，问他是从哪儿来的。渔人详细地作了回答。村里人便邀请他到家里做客，杀鸡做饭款待他。村里听说来了这么一个人，都来打听消息。自己说他们的祖先为了躲避秦朝时的战乱，率领妻子儿女和乡邻来到这个与世隔绝的地方，不再出去，于是就和外世隔绝了。他们问现在是什么朝代，竟然不知道有过汉朝，更不必说魏晋了。这个人一一为他们详细说出自己所知道的事，他们都感叹惋惜。其余的人也都各自邀请渔人到自己的家里，都拿出酒饭来款待。住了几天，渔人告辞离开。这里的人告诉他说：“这里的情况不值得对外面的人说啊。”</p>
+                <p>（渔人）出来以后，找到了他的船，就顺着旧路回去，处处都做了记号。到了郡城下，去拜见太守，报告了这番经历。太守立即派人跟着他去，寻找先前做的记号，最终迷路了，再也找不到通往桃花源的路。</p>
+                <p>南阳的刘子骥，是个高尚的隐士，听说了这件事，高兴地计划前往。没有实现，不久就病死了。后来就再也没有探访桃花源的人了。</p>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features-grid">
+            <article class="feature-card">
+                <div class="icon-box">🎙️</div>
+                <h3>名家诵读</h3>
+                <p>提供专业播音员录制的标准普通话朗诵音频，帮助读者掌握文言文的韵律与停顿。</p>
+            </article>
+            <article class="feature-card">
+                <div class="icon-box">📝</div>
+                <h3>字词注释</h3>
+                <p>逐字逐句解析重点字词含义，帮助初学者扫清阅读障碍，理解古汉语语法结构。</p>
+            </article>
+            <article class="feature-card">
+                <div class="icon-box">💡</div>
+                <h3>主题探讨</h3>
+                <p>深入分析“乌托邦”思想在文学中的体现，探讨作者对黑暗现实的批判与对和平的向往。</p>
+            </article>
+        </section>
+
+        <!-- Analysis Section -->
+        <section id="analysis" class="analysis-section">
+            <div class="analysis-content">
+                <h2>文学意象与思想内涵</h2>
+                <p>《桃花源记》不仅是陶渊明田园诗的代表作，更是中国文学史上“乌托邦”思想的源头之一。文章通过虚构的故事，构建了一个没有战乱、没有压迫、人人平等的理想社会。</p>
+                <br>
+                <ul class="analysis-list">
+                    <li><strong>避世思想：</strong> 桃花源是陶渊明对现实政治黑暗（战乱频繁、官场腐败）的逃避，也是他对理想政治秩序的寄托。</li>
+                    <li><strong>艺术手法：</strong> 作者运用了虚实相生的手法，以“忘路之远近”引入，以“不复得路”结尾，留下了无尽的想象空间。</li>
+                    <li><strong>语言风格：</strong> 语言质朴自然，清新淡雅，毫无雕琢痕迹，体现了陶渊明“清水出芙蓉，天然去雕饰”的审美追求。</li>
+                </ul>
+            </div>
+            <div class="analysis-image">
+                世外桃源意境图<br>(示意)
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2 style="font-size: 2rem; margin-bottom: 30px; color: var(--primary-color);">教学与拓展资源</h2>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <div class="resource-header">课后习题解析</div>
+                    <div class="resource-body">
+                        <p>重点虚词“之”“而”用法归纳</p>
+                        <br>
+                        <a href="#">查看详情 &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-header">相关名句</div>
+                    <div class="resource-body">
+                        <p>“芳草鲜美，落英缤纷”</p>
+                        <br>
+                        <a href="#">更多摘抄 &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-header">人物形象分析</div>
+                    <div class="resource-body">
+                        <p>渔人、桃源人、刘子骥形象对比</p>
+                        <br>
+                        <a href="#">深入阅读 &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-header">文言文常识</div>
+                    <div class="resource-body">
+                        <p>晋代文体特征与文体分类</p>
+                        <br>
+                        <a href="#">基础知识 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p style="font-size: 0.9rem; color: #d7ccc8; line-height: 1.6;">
+                    桃花源记官网致力于弘扬中华优秀传统文化，为读者提供便捷、准确的古文阅读与学习平台。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#text">全文诵读</a></li>
+                    <li><a href="#analysis">深度赏析</a></li>
+                    <li><a href="#resources">教学资源</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关链接</h4>
+                <ul>
+                    <li><a href="#">陶渊明全集</a></li>
+                    <li><a href="#">古文观止</a></li>
+                    <li><a href="#">中国文学史</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 桃花源记官网. All Rights Reserved. 仅供学习与交流使用.
+        </div>
+    </footer>
+
+</body>
+</html>
