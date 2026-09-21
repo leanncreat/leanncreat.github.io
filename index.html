@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播吧NBA直播吧在线直播 - NBA赛事实时比分与高清直播平台</title>
+    <meta name="description" content="直播吧NBA直播吧在线直播频道，提供NBA常规赛、季后赛及全明星赛实时赛况、高清视频直播、比分数据统计及赛程查询服务。">
+    <meta name="keywords" content="直播吧NBA直播吧在线直播, NBA直播, NBA在线观看, NBA比分, NBA赛程, 直播吧">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff6b00;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f0f2f5;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .live-badge {
+            display: inline-block;
+            background-color: #ff3b3b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #e65100;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        /* Live Matches List */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .match-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .match-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .match-info {
+            flex: 1;
+            text-align: center;
+        }
+
+        .match-team {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .team-logo {
+            width: 40px;
+            height: 40px;
+            background: #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .team-name {
+            font-weight: 700;
+            font-size: 16px;
+            width: 80px;
+        }
+
+        .match-status {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .match-score {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 0 20px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .match-actions {
+            text-align: right;
+            min-width: 100px;
+        }
+
+        .btn-watch {
+            display: block;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 5px;
+            transition: background 0.2s;
+        }
+
+        .btn-watch:hover {
+            background-color: #bbdefb;
+        }
+
+        .btn-stats {
+            font-size: 12px;
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .schedule-list {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .match-time {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        .match-league {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .match-status-icon {
+            color: #28a745;
+            font-size: 12px;
+        }
+
+        .rank-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .rank-table th {
+            text-align: left;
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .rank-table td {
+            font-size: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .rank-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 30px;
+            font-weight: bold;
+        }
+
+        .rank-team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .win-rate {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .match-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .match-score {
+                margin: 0;
+                font-size: 24px;
+            }
+
+            .match-actions {
+                text-align: center;
+                width: 100%;
+            }
+
+            .match-team {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">直播吧<span>NBA</span></a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">NBA直播</a>
+                <a href="#">CBA直播</a>
+                <a href="#">足球直播</a>
+                <a href="#">NBA赛程</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索球队或球员...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="live-badge">● 正在直播</div>
+        <h1>NBA直播吧在线直播</h1>
+        <p>汇聚全美职业篮球联赛顶级赛事，提供高清视频流与实时数据统计</p>
+        <a href="#" class="btn-primary">立即观看直播</a>
+    </section>
+
+    <main class="container">
+        <!-- Left Column: Live Matches -->
+        <section class="content-area">
+            <div class="section-title">
+                <span>今日赛程</span>
+                <a href="#" style="font-size: 14px; color: var(--primary-color);">查看全部 ></a>
+            </div>
+
+            <!-- Match Card 1 -->
+            <article class="match-card">
+                <div class="match-info">
+                    <div class="match-team">
+                        <div class="team-logo" style="background:#0056b3; color:white;">LAL</div>
+                        <div class="team-name">洛杉矶湖人</div>
+                    </div>
+                    <div class="match-status">常规赛</div>
+                </div>
+                <div class="match-score">102 : 98</div>
+                <div class="match-info">
+                    <div class="match-team">
+                        <div class="team-name">金州勇士</div>
+                        <div class="team-logo" style="background:#1d428a; color:white;">GSW</div>
+                    </div>
+                    <div class="match-status">第四节 02:15</div>
+                </div>
+                <div class="match-actions">
+                    <a href="#" class="btn-watch">▶ 观看直播</a>
+                    <a href="#" class="btn-stats">数据统计</a>
+                </div>
+            </article>
+
+            <!-- Match Card 2 -->
+            <article class="match-card">
+                <div class="match-info">
+                    <div class="match-team">
+                        <div class="team-logo" style="background:#1438ca; color:white;">BOS</div>
+                        <div class="team-name">波士顿凯尔特人</div>
+                    </div>
+                    <div class="match-status">季后赛</div>
+                </div>
+                <div class="match-score">待定</div>
+                <div class="match-info">
+                    <div class="match-team">
+                        <div class="team-name">迈阿密热火</div>
+                        <div class="team-logo" style="background:#98002e; color:white;">MIA</div>
+                    </div>
+                    <div class="match-status">明日 08:00</div>
+                </div>
+                <div class="match-actions">
+                    <a href="#" class="btn-watch" style="background:#f0f0f0; color:#666;">预约提醒</a>
+                    <a href="#" class="btn-stats">赛程表</a>
+                </div>
+            </article>
+
+            <!-- Match Card 3 -->
+            <article class="match-card">
+                <div class="match-info">
+                    <div class="match-team">
+                        <div class="team-logo" style="background:#0e2240; color:white;">DEN</div>
+                        <div class="team-name">丹佛掘金</div>
+                    </div>
+                    <div class="match-status">常规赛</div>
+                </div>
+                <div class="match-score">全场比赛</div>
+                <div class="match-info">
+                    <div class="match-team">
+                        <div class="team-name">菲尼克斯太阳</div>
+                        <div class="team-logo" style="background:#e56020; color:white;">PHX</div>
+                    </div>
+                    <div class="match-status">已结束 (118-105)</div>
+                </div>
+                <div class="match-actions">
+                    <a href="#" class="btn-watch" style="background:#f0f0f0; color:#666;">回放精彩</a>
+                    <a href="#" class="btn-stats">详细数据</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <!-- Schedule Widget -->
+            <div class="schedule-list">
+                <div class="section-title" style="font-size: 16px; margin-bottom: 15px;">近期赛程</div>
+                
+                <div class="schedule-item">
+                    <span class="match-time">11月14日 09:30</span>
+                    <span class="match-league">NBA常规赛</span>
+                    <span class="match-status-icon">📺</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="match-time">11月15日 08:00</span>
+                    <span class="match-league">NBA常规赛</span>
+                    <span class="match-status-icon">📅</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="match-time">11月16日 07:30</span>
+                    <span class="match-league">NBA常规赛</span>
+                    <span class="match-status-icon">📅</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="match-time">11月17日 10:00</span>
+                    <span class="match-league">NBA常规赛</span>
+                    <span class="match-status-icon">📅</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="match-time">11月18日 08:30</span>
+                    <span class="match-league">NBA常规赛</span>
+                    <span class="match-status-icon">📅</span>
+                </div>
+            </div>
+
+            <!-- Standings Widget -->
+            <div class="rank-card">
+                <div class="section-title" style="font-size: 16px; margin-bottom: 15px;">西部联盟</div>
+                <table class="rank-table">
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>球队</th>
+                            <th>胜率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rank-num" style="color: #ffcc00;">1</td>
+                            <td class="rank-team">丹佛掘金</td>
+                            <td class="win-rate">85%</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">2</td>
+                            <td class="rank-team">明尼苏达森林狼</td>
+                            <td class="win-rate">80%</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">3</td>
+                            <td class="rank-team">俄克拉荷马雷霆</td>
+                            <td class="win-rate">78%</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">4</td>
+                            <td class="rank-team">洛杉矶湖人</td>
+                            <td class="win-rate">72%</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">5</td>
+                            <td class="rank-team">金州勇士</td>
+                            <td class="win-rate">70%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="#" style="font-size: 13px; color: var(--primary-color);">查看完整榜单 ></a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <p style="font-size: 13px; line-height: 1.8;">直播吧NBA致力于为球迷提供最及时、最全面的NBA赛事直播服务。我们拥有高清流媒体技术和专业的数据分析师团队。</p>
+            </div>
+            <div class="footer-col">
+                <h3>热门频道</h3>
+                <ul>
+                    <li><a href="#">NBA直播吧在线直播</a></li>
+                    <li><a href="#">CBA联赛资讯</a></li>
+                    <li><a href="#">英超足球直播</a></li>
+                    <li><a href="#">欧冠比赛回放</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">直播常见问题</a></li>
+                    <li><a href="#">会员权益说明</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <p style="font-size: 13px;">扫描二维码下载APP，随时随地观看精彩比赛。</p>
+                <div style="margin-top: 10px; width: 100px; height: 100px; background: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #333;">APP下载</div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 直播吧NBA直播吧在线直播 版权所有 | 本站内容仅供学习交流使用</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
